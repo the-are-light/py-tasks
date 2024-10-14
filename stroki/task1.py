@@ -1,4 +1,4 @@
-s = "3-x=9"
+s = input("Введите уравнение вида 3-x=9: ")
 
 def equation(eq):
     a, b, c= s[0], s[2], int(s[4])

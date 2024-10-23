@@ -7,7 +7,7 @@ url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}&uni
 response = requests.get(url).json()
 
 def temp(city, desc, t, wind, clouds, humidity ):
-    return rf"""    Город: {city}
+    return rf"""    Населенный пункт: {city}
     Погода: {desc}
     Температура: {t}
     Влажность: {humidity}%

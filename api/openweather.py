@@ -6,7 +6,7 @@ key = '7fe1d51d3760f56be31f7feb6ee33bc4'
 url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}&units=metric'
 response = requests.get(url).json()
 
-def temp(city, desc, t, wind, clouds, humidity ):
+def temp(city, desc, t, wind, clouds, humidity):
     return rf"""    Населенный пункт: {city}
     Погода: {desc}
     Температура: {t}

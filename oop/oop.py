@@ -41,7 +41,7 @@ class Vector:
         x, y = x1 * x2, y1 * y2
         return x, y
 
-vector1 = Vector(2, 3,4 , 6)
+vector1 = Vector(2, 3, 4, 6)
 vector2 = Vector(1, 5, 4, 1)
 
 print(rf"""

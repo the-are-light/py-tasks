@@ -1,4 +1,6 @@
-text = open("roles.txt", mode='r', encoding='utf-8').read()
+file = input("Введите название .txt файла: ")
+
+text = open(f"{file}.txt", mode='r', encoding='utf-8').read()
 d = text.strip().split("textLines:")
 
 roles = d[0].replace("roles:", '').strip().split("\n")

@@ -6,15 +6,15 @@ class BirthInfo:
     def __init__(self, birth_date): raise TypeError("Аргумент переданного типа не поддерживается")
     @__init__.register(date)
     def date_init(self, birth_date):
-        if self.birth_date.year > date.today().year: self.birth_date = birth_date
+        if birth_date.year < date.today().year: self.birth_date = birth_date
         else: raise ValueError("Ты не родился ещё?")
     @__init__.register(tuple|list)
     def tuple_init(self, birth_date):
-        if date(*birth_date).today().year > date.today().year: self.birth_date = date( *birth_date )
+        if date(*birth_date).year < date.today().year: self.birth_date = date( *birth_date )
         else: raise ValueError("Ты не родился ещё?")
     @__init__.register(str)
     def str_init(self, birth_date):
-        if date(*birth_date).today().year > date.today().year: self.birth_date = date( *list(map(int, birth_date.split("-"))) )
+        if date( *list(map(int, birth_date.split("-"))) ).year < date.today().year: self.birth_date = date( *list(map(int, birth_date.split("-"))) )
         else: raise ValueError("Ты не родился ещё?")
     def current_age(self):
         return f"""Current age: {
@@ -24,7 +24,7 @@ class BirthInfo:
         } - format(YYYY-MM-DD)"""
     def age(self): return date.today().year - self.birth_date.year
 
-birth = BirthInfo( (2006, 2, 19) )
+birth = BirthInfo( "2006-02-19" )
 print(birth.birth_date)
 print(birth.current_age())
 print(birth.age())
